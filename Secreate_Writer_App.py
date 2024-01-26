@@ -1,5 +1,24 @@
 from tkinter import *
 
+
+def readit():
+    message = txt_msg.get("1.0",END) # take all data from textbox
+    print("Read it: \n",message)
+
+    key = int(txt_key.get("1.0",END))
+    print("Key is: ",key)
+
+    encrypted_message = ""
+    for c in message:
+        bit = ord(c)  # ascii value
+        encry_bit = bit ^ key
+        encry_char = chr(encry_bit)
+        encrypted_message += encry_char
+        # print(c, encry_bit, encry_char)
+        # print(c)
+
+    # print("Encrypted Message is: ",encrypted_message)
+    txt_encry_msg.config(text=encrypted_message)
 root = Tk()
 root.title("Screate Writer")
 root.geometry('500x500+250+10')
@@ -17,6 +36,9 @@ key_label.pack()
 txt_key = Text(root,height=1,width=10)
 txt_key.pack()
 
-go_btn = Button(root,text="Magic")
+go_btn = Button(root,text="Magic",command=readit)
+go_btn.pack()
+
+
 
 root.mainloop()
