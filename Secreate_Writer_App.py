@@ -18,7 +18,7 @@ def readit():
         # print(c)
 
     # print("Encrypted Message is: ",encrypted_message)
-    txt_encry_msg.config(text=encrypted_message)
+    txt_encry_msg.insert(END,encrypted_message)
 root = Tk()
 root.title("Screate Writer")
 root.geometry('500x500+250+10')
@@ -39,6 +39,7 @@ txt_key.pack()
 go_btn = Button(root,text="Magic",command=readit)
 go_btn.pack()
 
-
+txt_encry_msg = Text(root,height=10,width=30)
+txt_encry_msg.pack()
 
 root.mainloop()
